@@ -16,19 +16,21 @@
    * @typedef {{ open: Open, close: Close }} Context
    */
 
+   import { mount } from 'svelte';
   /**
    * Create a Svelte component with props bound to it.
    * @type {(component: Component, props: Record<string, any>) => Component}
    */
   export function bind(Component, props = {}) {
     return function ModalComponent(options) {
-      return new Component({
-        ...options,
-        props: {
-          ...props,
-          ...options.props,
-        },
-      });
+      return mount(Component,{
+           ...options,
+           props: {
+             ...props,
+             ...options.props,
+           },
+           target : options.parentNode  
+         });
     };
   }
 </script>
