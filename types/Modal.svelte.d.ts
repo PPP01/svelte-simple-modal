@@ -1,4 +1,3 @@
-/// <reference types="svelte" />
 import type { SvelteComponent } from "svelte";
 
 /**
@@ -6,7 +5,7 @@ import type { SvelteComponent } from "svelte";
  */
 export declare function bind(
   component: Component,
-  props: Record<string, any>
+  props: Record<string, any>,
 ): Component;
 export type Component =
   | typeof import("svelte").SvelteComponent
@@ -27,7 +26,7 @@ export type Styles = Record<string, string | number>;
 
 export type TransitionFn = (
   node: Element,
-  parameters: BlurParams | FadeParams | FlyParams | SlideParams
+  parameters: BlurParams | FadeParams | FlyParams | SlideParams,
 ) => TransitionConfig;
 
 export interface Options {
@@ -69,7 +68,7 @@ export type Open = (
   NewComponent: Component,
   newProps?: Record<string, any>,
   options?: Partial<Options>,
-  callbacks?: Partial<Callbacks>
+  callbacks?: Partial<Callbacks>,
 ) => void;
 
 export type Close = (callback?: Partial<Callbacks>) => void;
@@ -79,7 +78,7 @@ export interface Context {
   close: Close;
 }
 
-export interface ModalProps {
+export type ModalProps = {
   /**
    * A function to determine if an HTML element is tabbable
    * @default undefined
@@ -243,7 +242,7 @@ export interface ModalProps {
    * @default false
    */
   disableFocusTrap?: boolean;
-}
+};
 
 export default class Modal extends SvelteComponent<
   ModalProps,
