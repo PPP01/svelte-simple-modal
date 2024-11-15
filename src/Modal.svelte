@@ -510,7 +510,7 @@
               on:click={close}
               style={cssCloseButton}
               type="button"
-            />
+            ></button>
           {/if}
         {/if}
         <div
@@ -545,7 +545,7 @@
   }
 
   @supports (-webkit-touch-callout: none) {
-    body {
+    :global(body) {
       /* The hack for Safari iOS */
       height: -webkit-fill-available;
     }
